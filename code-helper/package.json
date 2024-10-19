@@ -1,9 +1,13 @@
 {
+  "homepage": "http://yTKONOSINA.github.io/TeamB",
   "name": "code-helper",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "react-scripts start",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
@@ -27,3 +31,4 @@
     "vite": "^5.4.8"
   }
 }
+

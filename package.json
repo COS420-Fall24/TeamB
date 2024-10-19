@@ -1,5 +1,8 @@
 {
   "dependencies": {
     "@types/react": "^18.3.11"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.2.0"
   }
 }

@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "types": ["vite/client"],
     "target": "es6",
     "module": "commonjs",
     "jsx": "react-jsx", // or "react" for React 17 and below

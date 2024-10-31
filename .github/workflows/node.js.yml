@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16'  # Consider using a newer version
+          node-version: '16'  
 
       - name: Cache Node.js modules
         uses: actions/cache@v2
@@ -37,5 +37,5 @@ jobs:
         with:
           access-token: ${{ secrets.GITHUB_TOKEN }}  # Required input
           junit-file: test-results/junit.xml  # Optional input; adjust if necessary
-          run-name: build  # Optional input; change as needed
-          check-name: Jest Tests  # Optional input; customize for your needs
+          run-name: CI Test Run # change as needed
+          check-name: Jest CI Tests  # customize as needed

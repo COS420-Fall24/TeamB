@@ -1,0 +1,103 @@
+/* src/EditAccount.css */
+
+/* Form Container */
+.edit-account-form {
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 600px;
+    margin: 20px auto;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3); /* Glow effect */
+    position: relative; /* Position relative to place back button inside the container */
+}
+
+/* Form Title */
+.edit-account-form h2 {
+    color: #ffffff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Input Fields */
+.edit-account-form input[type="text"],
+.edit-account-form input[type="email"],
+.edit-account-form input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+    border: 1px solid #00bcd4;
+    border-radius: 5px;
+    color: white;
+    transition: box-shadow 0.3s, border-color 0.3s;
+}
+
+.edit-account-form input[type="text"]:focus,
+.edit-account-form input[type="email"]:focus,
+.edit-account-form input[type="password"]:focus {
+    border-color: #0097a7;
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.6); /* Glow effect on focus */
+}
+
+/* Submit Button */
+.edit-account-form button[type="submit"] {
+    background: #00bcd4; /* Cyan button */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    width: 100%; /* Ensures button is the same width as the input fields */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-top: 15px;
+}
+
+.edit-account-form button[type="submit"]:hover {
+    background: #0097a7; /* Darker shade on hover */
+}
+
+/* Back Button */
+.back-button {
+    background: #00bcd4; /* Cyan button */
+    color: white;
+    border: none;
+    padding: 12px 20px; /* Same padding as input fields */
+    width: 100%; /* Same width as input fields */
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin-bottom: 20px; /* Space from the form */
+    position: absolute; /* Positioning the button */
+    top: 20px; /* 20px from the top */
+    left: 20px; /* 20px from the left */
+    width: auto; /* Set width to auto so it doesn't stretch to full width */
+}
+
+/* Hover effect for Back Button */
+.back-button:hover {
+    background: #0097a7; /* Darker shade on hover */
+}
+
+/* Status Message */
+.edit-account-form .status-message {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #ffffff;
+}
+
+/* Form Labels */
+.edit-account-form label {
+    color: #ffffff;
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}

@@ -3,6 +3,7 @@
 /* Existing styles... */
 
 /* Course List */
+
 .course-list {
     list-style-type: none; /* Remove default list styling */
     padding: 0; /* Remove padding */
@@ -82,4 +83,29 @@
 /* Show the active tab content */
 .tabcontent.active {
     display: block; /* Show the active tab content */
+}
+
+/* src/LandingPage.css */
+
+.account-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.account-button {
+    background: #00bcd4; /* Cyan color */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.account-button:hover {
+    background: #0097a7; /* Darker cyan on hover */
 }

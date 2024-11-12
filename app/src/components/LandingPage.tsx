@@ -41,13 +41,21 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
         navigate('/data-types'); // Navigate to the Data Types page
     };
 
+    const handleEditAccount = () => {
+        navigate('/edit-account'); // Navigate to the Edit Account page
+    };
+
     return (
+        
         <div className="container">
+            
             <h1>Welcome, {auth.currentUser?.email}</h1>
 
-            {/* Logout Button */}
-            <button onClick={props.onLogout} className="logout-button">Logout</button>
-
+            <div className="account-buttons">
+                <button onClick={handleEditAccount} className="account-button">Edit Account</button>
+                <button onClick={props.onLogout} className="account-button">Logout</button>
+            </div>
+            
             <h2>Your Dashboard</h2>
             <div className="tabs">
                 <button className={`tablink ${activeTab === 'exercises' ? 'active' : ''}`} onClick={() => openTab('exercises')}>Interactive Exercises</button>

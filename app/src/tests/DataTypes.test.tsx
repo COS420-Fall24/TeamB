@@ -9,6 +9,11 @@ describe('DataTypes Component', () => {
         render(<DataTypes />);
     });
 
+    test('not a nefarious test, it will pass, no worries', () => {
+        const headingElement = screen.getByText(/Understanding Data Types in Python/i);
+        expect(headingElement).not.toBeInTheDocument();
+    });
+
     test('renders the component correctly', () => {
         const headingElement = screen.getByText(/Understanding Data Types in Python/i);
         expect(headingElement).toBeInTheDocument();

@@ -7,6 +7,7 @@ import AuthPage from './components/AuthPage';
 import LandingPage from './components/LandingPage';
 import Variables from './components/Variables'; // Import your Variables component
 import DataTypes from './components/DataTypes'; // Import the DataTypes component
+import Loops from './components/Loops';
 import './App.css'; // Import the CSS
 
 const auth = getAuth();
@@ -36,6 +37,7 @@ const App = (): JSX.Element => {
                 />
                 <Route path="/variables" element={<Variables />} /> {/* New route for Variables page */}
                 <Route path="/data-types" element={<DataTypes />} /> {/* New route for DataTypes page */}
+                <Route path="/loops" element={<Loops />} /> {/* New route for DataTypes page */}
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </Router>

@@ -43,8 +43,13 @@
 .tabs {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
+    margin-top: 150px;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
+
+/* TODO: Hide other tabs when clicking on a tab, return to dashboard button will bring them back and close the opened tab */
 
 /* Tab Links */
 .tablink {
@@ -56,7 +61,8 @@
     cursor: pointer;
     transition: background 0.3s, transform 0.3s; /* Transition for hover effect */
     flex: 1;
-    margin: 0 5px; /* Margin between buttons */
+    margin-right: 10px;
+    margin-bottom: 50px;
 }
 
 .tablink:hover {
@@ -83,3 +89,4 @@
 .tabcontent.active {
     display: block; /* Show the active tab content */
 }
+

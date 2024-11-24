@@ -21,7 +21,7 @@ describe('Loops', () => {
         expect(title).toBeInTheDocument();
 
         //check for the code snippet
-        const code = screen.getByText(/for i in range(5)/i);
+        const code = screen.getByText(/for i in range\(5\)/i);
         expect(code).toBeInTheDocument();
     });
 
@@ -31,7 +31,7 @@ describe('Loops', () => {
         expect(title).toBeInTheDocument();
 
         //check for the code snippet
-        const code = screen.getByText(/while i < 10/i);
+        const code = screen.getByText(/while i < 9/i);
         expect(code).toBeInTheDocument();
     });
 

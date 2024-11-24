@@ -18,7 +18,7 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
     const courses = [
         { id: 1, title: 'Variables', description: 'Learn how to store and manipulate data using variables.' },
         { id: 2, title: 'Data Types', description: 'Understand different data types like integers, floats, strings, and booleans.' },
-        { id: 3, title: 'Control Structures', description: 'Explore loops (for, while).' },
+        { id: 3, title: 'Loops', description: 'Explore loops (for, while).' },
         { id: 4, title: 'Control Structures', description: 'Explore conditional statements (if, elif, else) and loops (for, while).' },
         { id: 5, title: 'Functions', description: 'Learn how to create reusable blocks of code with functions.' },
         { id: 6, title: 'Lists and Tuples', description: 'Discover how to store collections of data using lists and tuples.' },
@@ -106,7 +106,7 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
                         )}
 
                         {course.id === 3 && (
-                            <button className="course-button" onClick={handleEnrollNowDataTypes}>Enroll Now</button>
+                            <button className="course-button" onClick={handleEnrollNowLoops}>Enroll Now</button>
                         )}
                     </li>
                 ))}

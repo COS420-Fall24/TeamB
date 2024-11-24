@@ -19,8 +19,26 @@ describe('Loops', () => {
 
         const title = screen.getByText(/For Loop/i);
         expect(title).toBeInTheDocument();
+
+        //check for the code snippet
+        const code = screen.getByText(/for i in range(5)/i);
+        expect(code).toBeInTheDocument();
     });
 
+    test('render the While loop section', () => {
 
+        const title = screen.getByText(/While Loop/i);
+        expect(title).toBeInTheDocument();
+
+        //check for the code snippet
+        const code = screen.getByText(/while i < 10/i);
+        expect(code).toBeInTheDocument();
+    });
+
+    test('contains and embedded Python compiler inframe', () => {
+        const inframe = screen.getByTitle(/Python Compiler/i);
+        expect(inframe).toBeInTheDocument();
+        expect(inframe).toHaveAttribute('src', 'https://trinket.io/embed/python/c602fdf514fe');
+    })
 
 })

@@ -11,7 +11,7 @@ describe('Loops', () => {
 
     test('render the Loops component', () => {
         
-        const title = screen.getByText(/Loops in python/i)
+        const title = screen.getByText(/Understanding Loops in Python/i)
         expect(title).toBeInTheDocument();
     })
 

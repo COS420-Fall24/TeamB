@@ -37,7 +37,7 @@ const App = (): JSX.Element => {
                 />
                 <Route path="/variables" element={<Variables />} /> {/* New route for Variables page */}
                 <Route path="/data-types" element={<DataTypes />} /> {/* New route for DataTypes page */}
-                <Route path="/loops" element={<Loops />} /> {/* New route for DataTypes page */}
+                <Route path="/loops" element={<Loops />} /> {/* New route for Loops page */}
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </Router>

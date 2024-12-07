@@ -1,4 +1,5 @@
 // src/components/Quizzes.tsx
+// generated with AI
 
 import React from 'react';
 

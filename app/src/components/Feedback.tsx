@@ -1,3 +1,4 @@
+// generated with AI
 import React from 'react';
 
 const PersonalCodingAssistant: React.FC = () => {

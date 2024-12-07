@@ -46,6 +46,10 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
         navigate('/quizzes');
     };
 
+    const handleNavigateToProgress = () => {
+        navigate('/progress');
+    };
+
     return (
         <div className="container">
             {/* Top Container with Logout Button and Dashboard */}
@@ -78,6 +82,7 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
             <div id="progress" className={`tabcontent ${activeTab === 'progress' ? 'active' : ''}`}>
                 <h2>Progress Tracking</h2>
                 <p>Track your progress through quizzes and exercises.</p>
+                <button className="course-button" onClick={handleNavigateToProgress}>Go to Progress Tracking</button>
             </div>
 
             <div id="quizzes" className={`tabcontent ${activeTab === 'quizzes' ? 'active' : ''}`}>

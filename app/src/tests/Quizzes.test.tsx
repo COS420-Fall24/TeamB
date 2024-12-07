@@ -1,4 +1,5 @@
 // src/tests/quizzes.test.tsx
+// generated with AI
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';

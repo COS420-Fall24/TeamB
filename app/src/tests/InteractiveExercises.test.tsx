@@ -3,7 +3,7 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import InteractiveExercises from './InteractiveExercises';
+import InteractiveExercises from '../components/InteractiveExercises';
 
 describe('InteractiveExercises', () => {
     // Test rendering of the exercises

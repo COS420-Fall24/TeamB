@@ -1,7 +1,7 @@
 //generated with AI
 
 import React, { useState } from 'react';
-import './InteractiveExercises.css';
+//import './InteractiveExercises.css';
 
 interface Exercise {
     id: number;

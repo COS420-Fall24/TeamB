@@ -1,85 +1,55 @@
-// src/tests/quizzes.test.tsx
-// generated with AI
+// src/tests/Quizzes.test.tsx
+// Generated with AI
 
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import { BrowserRouter as Router } from 'react-router-dom'; // To wrap the component with Router for navigation
-import Quizzes from '../components/Quizzes'; // Adjust the path according to your folder structure
-
-// Mocking necessary components if needed (e.g., for navigation)
-jest.mock('react-router-dom', () => ({
-  ...jest.requireActual('react-router-dom'),
-  useNavigate: jest.fn(),
-}));
+import Quizzes from '../components/Quizzes';
 
 describe('Quizzes Component', () => {
-
-  // Test if the Quizzes page renders correctly
-  test('renders quizzes page correctly', () => {
-    render(
-      <Router>
-        <Quizzes />
-      </Router>
-    );
-
-    // Check if the heading is present
+  it('renders the quizzes page correctly', () => {
+    render(<Quizzes />);
+    
+    // Check if the page heading is rendered
     expect(screen.getByText(/Quizzes/i)).toBeInTheDocument();
 
-    // Check if the description text is present (assuming it's part of the Quizzes component)
-    expect(screen.getByText(/Test your knowledge/i)).toBeInTheDocument();
+    // Check if the introductory text is rendered
+    expect(
+      screen.getByText(/Select a quiz below to test your coding knowledge:/i)
+    ).toBeInTheDocument();
+
+    // Check if all "Take Quiz" buttons are rendered
+    const quizButtons = screen.getAllByRole('button', { name: /Take Quiz/i });
+    expect(quizButtons.length).toBe(3); // Expecting 3 quizzes
   });
 
-  // Test that a button or other interactive element works
-  test('clicking on a quiz button redirects correctly', () => {
-    // Render the Quizzes component within Router
-    render(
-      <Router>
-        <Quizzes />
-      </Router>
-    );
+  it('renders quiz titles and descriptions correctly', () => {
+    render(<Quizzes />);
 
-    // Example: Assume there is a button that starts a quiz
-    const quizButton = screen.getByRole('button', { name: /Start Quiz/i });
-    expect(quizButton).toBeInTheDocument();
+    // Verify each quiz title and description is rendered
+    expect(screen.getByText(/Quiz on Variables/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Test your understanding of variables in programming\./i)
+    ).toBeInTheDocument();
 
-    // Simulate a click event on the button
-    fireEvent.click(quizButton);
+    expect(screen.getByText(/Quiz on Data Types/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Check your knowledge of various data types\./i)
+    ).toBeInTheDocument();
 
-    // Test: After clicking the button, the user should be navigated (here we mock this behavior)
-    // You can add assertions based on your navigation logic
-    // E.g., If `useNavigate` is used to redirect, we can assert that it's called:
-    // expect(navigate).toHaveBeenCalled();
+    expect(screen.getByText(/Quiz on Loops/i)).toBeInTheDocument();
+    expect(
+      screen.getByText(/Challenge your knowledge of loops \(for, while\)\./i)
+    ).toBeInTheDocument();
   });
 
-  // Test: Check if a quiz question is rendered (if applicable)
-  test('displays quiz question correctly', () => {
-    render(
-      <Router>
-        <Quizzes />
-      </Router>
-    );
+  it('allows clicking a quiz button and triggers an action', () => {
+    render(<Quizzes />);
 
-    // Check if a sample quiz question is displayed (replace with actual question text)
-    expect(screen.getByText(/What is 2 + 2\?/i)).toBeInTheDocument(); // Replace with your quiz question
-  });
+    // Simulate clicking on the first "Take Quiz" button
+    const quizButtons = screen.getAllByRole('button', { name: /Take Quiz/i });
+    fireEvent.click(quizButtons[0]);
 
-  // Test for any form of user interaction
-  test('answers a quiz question and submits', () => {
-    render(
-      <Router>
-        <Quizzes />
-      </Router>
-    );
-
-    // Assume there is an input or radio button for quiz answers
-    const answerInput = screen.getByLabelText(/Choose an answer/i); // Replace with actual label
-    fireEvent.change(answerInput, { target: { value: '4' } }); // Choose an answer (replace '4' with your answer)
-
-    // Check if the selected answer is captured or button click happens
-    const submitButton = screen.getByRole('button', { name: /Submit Answer/i });
-    fireEvent.click(submitButton);
-
-    // Assert that the correct submission is handled (can be checking if the next question is displayed)
-    expect(screen.getByText(/Correct!/i)).toBeInTheDocument(); // Assuming the correct answer triggers a feedback message
+    // Since the component doesn't have routing or state change, no further assertions are needed.
+    // Add routing or state-based tests as needed.
   });
 });

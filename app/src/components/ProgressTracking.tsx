@@ -1,31 +1,35 @@
-// src/components/ProgressTracking.tsx
-// generated with AI
+//generated with AI
+import React from 'react';
+import './ProgressTracking.css'; // Assuming styles are here
 
-import React, { useState } from 'react';
-
-const ProgressTracking: React.FC = () => {
-    const [progressData, setProgressData] = useState([
-        { course: 'Variables', progress: 50 },
-        { course: 'Data Types', progress: 75 },
-        { course: 'Loops', progress: 20 },
-        { course: 'Functions', progress: 90 },
-    ]);
+const ProgressTracking = (): JSX.Element => {
+    const courses = [
+        { id: 1, name: 'Variables', progress: 50 },
+        { id: 2, name: 'Data Types', progress: 75 },
+        { id: 3, name: 'Loops', progress: 20 },
+        { id: 4, name: 'Functions', progress: 90 },
+    ];
 
     return (
         <div className="progress-tracking">
             <h2>Progress Tracking</h2>
             <p>Track your progress through your courses below:</p>
             <ul>
-                {progressData.map((item, index) => (
-                    <li key={index} className="progress-item">
-                        <h3>{item.course}</h3>
+                {courses.map((course) => (
+                    <li key={course.id} className="progress-item">
+                        <h3>{course.name}</h3>
                         <div className="progress-bar-container">
+                            {/* Add the role="progressbar" to the progress bar */}
                             <div
                                 className="progress-bar"
-                                style={{ width: `${item.progress}%` }}
-                            ></div>
+                                role="progressbar"
+                                aria-valuenow={course.progress}
+                                aria-valuemin={0}
+                                aria-valuemax={100}
+                                style={{ width: `${course.progress}%` }}
+                            />
                         </div>
-                        <p>{item.progress}% Completed</p>
+                        <p>{course.progress}% Completed</p>
                     </li>
                 ))}
             </ul>

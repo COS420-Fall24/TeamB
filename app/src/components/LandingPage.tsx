@@ -42,6 +42,10 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
         navigate('/loops');
     };
 
+    const handleNavigateToQuizzes = () => {
+        navigate('/quizzes');
+    };
+
     return (
         <div className="container">
             {/* Top Container with Logout Button and Dashboard */}
@@ -79,6 +83,7 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
             <div id="quizzes" className={`tabcontent ${activeTab === 'quizzes' ? 'active' : ''}`}>
                 <h2>Quizzes</h2>
                 <p>Test your knowledge with these quizzes.</p>
+                <button className="course-button" onClick={handleNavigateToQuizzes}>Start Quizzes</button>
             </div>
 
             <div id="feedback" className={`tabcontent ${activeTab === 'feedback' ? 'active' : ''}`}>
@@ -120,6 +125,12 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
                         )}
                     </li>
                 ))}
+                {/* Add Quizzes Section */}
+                <li className="course-item" key="quizzes">
+                    <h3>Quizzes</h3>
+                    <p>Test your knowledge on various programming topics.</p>
+                    <button className="course-button" onClick={handleNavigateToQuizzes}>Explore Quizzes</button>
+                </li>
             </ul>
         </div>
     );

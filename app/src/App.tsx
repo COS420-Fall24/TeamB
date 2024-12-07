@@ -8,6 +8,7 @@ import DataTypes from './components/DataTypes'; // Import the DataTypes componen
 import Loops from './components/Loops'; // Import the Loops component
 import Quizzes from './components/Quizzes'; // Import the Quizzes component
 import ProgressTracking from './components/ProgressTracking'; // Import the ProgressTracking component
+import InteractiveExercises from './components/InteractiveExercises'; // Import the InteractiveExercises component
 import './App.css'; // Import the CSS
 
 const auth = getAuth();
@@ -46,6 +47,7 @@ const App = (): JSX.Element => {
                 <Route path="/loops" element={<Loops />} /> {/* Route for Loops page */}
                 <Route path="/quizzes" element={<Quizzes />} /> {/* Route for Quizzes page */}
                 <Route path="/progress" element={<ProgressTracking />} /> {/* New route for ProgressTracking page */}
+                <Route path="/interactive-exercises" element={<InteractiveExercises />} /> {/* New route for Interactive Exercises */}
                 {/* Fallback route to redirect any unknown paths to the homepage */}
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>

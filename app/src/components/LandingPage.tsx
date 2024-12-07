@@ -50,6 +50,10 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
         navigate('/progress');
     };
 
+    const handleNavigateToInteractiveExercises = () => {
+        navigate('/interactive-exercises'); // Navigate to Interactive Exercises page
+    };
+
     return (
         <div className="container">
             {/* Top Container with Logout Button and Dashboard */}
@@ -77,6 +81,8 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
             <div id="exercises" className={`tabcontent ${activeTab === 'exercises' ? 'active' : ''}`}>
                 <h2>Interactive Exercises</h2>
                 <p>Complete the following exercises to sharpen your coding skills.</p>
+                {/* Button to navigate to interactive exercises */}
+                <button className="course-button" onClick={handleNavigateToInteractiveExercises}>Start Exercises</button>
             </div>
 
             <div id="progress" className={`tabcontent ${activeTab === 'progress' ? 'active' : ''}`}>

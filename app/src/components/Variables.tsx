@@ -3,11 +3,13 @@ import axios from 'axios';
 
 const Variables: React.FC = () => {
     const [feedback, setFeedback] = useState<string | null>(null);
+    // eslint-disable-next-line
     const [userInput, setUserInput] = useState<string>('');
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [error, setError] = useState<string | null>(null);
 
     // Function to handle getting hints from the backend
+    // eslint-disable-next-line
     const handleGetHints = async () => {
         if (!userInput.trim()) {
             setError('Please enter some text to get a hint.');

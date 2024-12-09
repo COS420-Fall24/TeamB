@@ -1,3 +1,7 @@
+import '@testing-library/jest-dom';
+import { describe, test, expect } from '@jest/globals';
+export {};
+
 const fs = require('fs');
 const path = require('path');
 

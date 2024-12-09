@@ -54,12 +54,17 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
         navigate('/interactive-exercises'); // Navigate to Interactive Exercises page
     };
 
+    const handleNavigateToDocs = () => {
+        window.location.href ='/docs';
+    }
+
     return (
         <div className="container">
             {/* Top Container with Logout Button and Dashboard */}
             <div className="top-container">
                 {/* Logout Button */}
                 <div className="logout-container">
+                    <button onClick={handleNavigateToDocs}>Documentation</button>
                     <button onClick={props.onLogout} className="logout-button">Logout</button>
                 </div>
 

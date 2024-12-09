@@ -1,6 +1,6 @@
 //generated with AI
 import React from 'react';
-import './ProgressTracking.css'; // Assuming styles are here
+//import './ProgressTracking.css'; // Assuming styles are here
 
 const ProgressTracking = (): JSX.Element => {
     const courses = [

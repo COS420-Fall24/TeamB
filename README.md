@@ -1,6 +1,5 @@
 # IntuiCode
-Teaching beginner programmers how to code.\
-[![CI](https://github.com/COS420-Fall24/TeamB/workflows/CI/badge.svg)](https://github.com/COS420-Fall24/TeamB/actions)
+Teaching beginner programmers how to code.
 ## Installation
 
 Step 1: Clone the Project Using

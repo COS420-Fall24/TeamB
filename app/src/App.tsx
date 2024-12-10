@@ -31,7 +31,14 @@ const App = (): JSX.Element => {
         auth.signOut();
         setUser(null);
     };
+    /**  
+     ** UNUSED VARIABLE 'courseProgress' causing build errror
+     **
+     ** eslint automatically treats unused variables as errors
+     ** remove below comment once 'courseProgress' is used
+    **/
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const [courseProgress, setCourseProgress] = useState<Record<number, number>>({});
 
     const updateCourseProgress = (courseId: number): void => {

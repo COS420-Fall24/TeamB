@@ -49,7 +49,15 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
     const [courseProgress, setCourseProgress] = useState<Record<number, number>>(
         Object.fromEntries(courses.map((course) => [course.id, 0]))
     );
+    
+    /**  
+     ** UNUSED VARIABLE 'updateCourseProgress' causing build errror
+     **
+     ** eslint automatically treats unused variables as errors
+     ** remove below comment once 'updateCourseProgress' is used
+    **/
 
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     const updateCourseProgress = (courseId: number): void => {
         setCourseProgress((prev) => {
             const currentProgress = prev[courseId];

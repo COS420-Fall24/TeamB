@@ -46,9 +46,22 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
         navigate('/quizzes');
     };
 
-    const handleNavigateToProgress = () => {
-        navigate('/progress');
+    const [courseProgress, setCourseProgress] = useState<Record<number, number>>(
+        Object.fromEntries(courses.map((course) => [course.id, 0]))
+    );
+
+    const updateCourseProgress = (courseId: number): void => {
+        setCourseProgress((prev) => {
+            const currentProgress = prev[courseId];
+            if (currentProgress < 100) {
+                
+                const newProgress = Math.min(currentProgress + 20, 100);
+                return { ...prev, [courseId]: newProgress };
+            }
+            return prev;
+        });
     };
+    
 
     const handleNavigateToInteractiveExercises = () => {
         navigate('/interactive-exercises'); // Navigate to Interactive Exercises page
@@ -91,10 +104,22 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
             </div>
 
             <div id="progress" className={`tabcontent ${activeTab === 'progress' ? 'active' : ''}`}>
-                <h2>Progress Tracking</h2>
-                <p>Track your progress through quizzes and exercises.</p>
-                <button className="course-button" onClick={handleNavigateToProgress}>Go to Progress Tracking</button>
-            </div>
+    <h2>Progress Tracking</h2>
+    <ul className="progress-list">
+        {courses.map((course) => (
+            <li key={course.id} className="progress-item">
+                <h3>{course.title}</h3>
+                <p>Progress: {courseProgress[course.id]}%</p>
+                <div className="progress-bar-container">
+                    <div
+                        className="progress-bar"
+                        style={{ width: `${courseProgress[course.id]}%` }}
+                    ></div>
+                </div>
+            </li>
+        ))}
+    </ul>
+</div>
 
             <div id="quizzes" className={`tabcontent ${activeTab === 'quizzes' ? 'active' : ''}`}>
                 <h2>Quizzes</h2>

@@ -45,11 +45,15 @@ h1, h2, h3 {
 .tabs {
     display: flex;
     justify-content: space-between;
-    margin-top: 20px;
-    width: 100%;
-    max-width: 600px; /* Limit width to prevent tabs from spreading too far */
+    margin-top: 150px;
+    margin-bottom: 100px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
+/* TODO: Hide other tabs when clicking on a tab, return to dashboard button will bring them back and close the opened tab */
+
+/* Tab Links */
 .tablink {
     background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
     color: white;
@@ -59,7 +63,8 @@ h1, h2, h3 {
     cursor: pointer;
     transition: background 0.3s;
     flex: 1;
-    margin: 0 5px;
+    margin-right: 10px;
+    margin-bottom: 50px;
 }
 
 .tablink:hover {
@@ -121,3 +126,4 @@ h1, h2, h3 {
 .course-button:hover {
     background: #0097a7;
 }
+

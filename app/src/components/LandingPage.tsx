@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { auth } from './firebaseConfig';
+// import { auth } from './firebaseConfig';
 import './LandingPage.css';
 
 interface LandingPageProps {
@@ -71,9 +71,9 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
     };
     
 
-    const handleNavigateToInteractiveExercises = () => {
-        navigate('/interactive-exercises'); // Navigate to Interactive Exercises page
-    };
+    // const handleNavigateToInteractiveExercises = () => {
+    //     navigate('/interactive-exercises'); // Navigate to Interactive Exercises page
+    // };
 
     const handleNavigateToDocs = () => {
         window.location.href ='/docs';
@@ -121,27 +121,26 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
                          )}
                         </li>
                     ))}
-                </ul>
-                
+                </ul>                
             </div>
 
             <div id="progress" className={`tabcontent ${activeTab === 'progress' ? 'active' : ''}`}>
-    <h2>Progress Tracking</h2>
-    <ul className="progress-list">
-        {courses.map((course) => (
-            <li key={course.id} className="progress-item">
-                <h3>{course.title}</h3>
-                <p>Progress: {courseProgress[course.id]}%</p>
-                <div className="progress-bar-container">
-                    <div
-                        className="progress-bar"
-                        style={{ width: `${courseProgress[course.id]}%` }}
-                    ></div>
-                </div>
-            </li>
-        ))}
-    </ul>
-</div>
+                <h2>Progress Tracking</h2>
+                <ul className="progress-list">
+                    {courses.map((course) => (
+                        <li key={course.id} className="progress-item">
+                            <h3>{course.title}</h3>
+                            <p>Progress: {courseProgress[course.id]}%</p>
+                            <div className="progress-bar-container">
+                                <div
+                                    className="progress-bar"
+                                    style={{ width: `${courseProgress[course.id]}%` }}
+                                ></div>
+                            </div>
+                        </li>
+                    ))}
+                </ul>
+            </div>
 
             <div id="quizzes" className={`tabcontent ${activeTab === 'quizzes' ? 'active' : ''}`}>
                 <h2>Quizzes</h2>

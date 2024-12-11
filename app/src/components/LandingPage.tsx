@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; 
-import { auth } from './firebaseConfig'; 
+import { useNavigate } from 'react-router-dom';
+import { auth } from './firebaseConfig';
 import './LandingPage.css';
 
 interface LandingPageProps {
-    onLogout: () => void; 
+    onLogout: () => void;
 }
 
 const LandingPage = (props: LandingPageProps): JSX.Element => {
-    const [activeTab, setActiveTab] = useState<string>('exercises'); 
-    const navigate = useNavigate(); 
+    const [activeTab, setActiveTab] = useState<string>('exercises');
+    const navigate = useNavigate();
 
     const openTab = (tabName: string): void => {
         setActiveTab(tabName);
@@ -31,7 +31,7 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
     }, []);
 
     const handleEnrollNowVariables = () => {
-        navigate('/variables'); 
+        navigate('/variables');
     };
 
     const handleEnrollNowDataTypes = () => {
@@ -42,12 +42,50 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
         navigate('/loops');
     };
 
+    const handleNavigateToQuizzes = () => {
+        navigate('/quizzes');
+    };
+
+    const [courseProgress, setCourseProgress] = useState<Record<number, number>>(
+        Object.fromEntries(courses.map((course) => [course.id, 0]))
+    );
+    
+    /**  
+     ** UNUSED VARIABLE 'updateCourseProgress' causing build errror
+     **
+     ** eslint automatically treats unused variables as errors
+     ** remove below comment once 'updateCourseProgress' is used
+    **/
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const updateCourseProgress = (courseId: number): void => {
+        setCourseProgress((prev) => {
+            const currentProgress = prev[courseId];
+            if (currentProgress < 100) {
+                
+                const newProgress = Math.min(currentProgress + 20, 100);
+                return { ...prev, [courseId]: newProgress };
+            }
+            return prev;
+        });
+    };
+    
+
+    const handleNavigateToInteractiveExercises = () => {
+        navigate('/interactive-exercises'); // Navigate to Interactive Exercises page
+    };
+
+    const handleNavigateToDocs = () => {
+        window.location.href ='/docs';
+    }
+
     return (
         <div className="container">
             {/* Top Container with Logout Button and Dashboard */}
             <div className="top-container">
                 {/* Logout Button */}
                 <div className="logout-container">
+                    <button onClick={handleNavigateToDocs}>Documentation</button>
                     <button onClick={props.onLogout} className="logout-button">Logout</button>
                 </div>
             </div>
@@ -88,11 +126,22 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
             </div>
 
             <div id="progress" className={`tabcontent ${activeTab === 'progress' ? 'active' : ''}`}>
-                <h2>Progress Tracking</h2>
-                <p>Track your progress through quizzes and exercises.</p>
-                <button className={`tablink ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => openTab('dashboard')}>Return to dashboard</button>
-                {/* Add progress tracking content here */}
-            </div>
+    <h2>Progress Tracking</h2>
+    <ul className="progress-list">
+        {courses.map((course) => (
+            <li key={course.id} className="progress-item">
+                <h3>{course.title}</h3>
+                <p>Progress: {courseProgress[course.id]}%</p>
+                <div className="progress-bar-container">
+                    <div
+                        className="progress-bar"
+                        style={{ width: `${courseProgress[course.id]}%` }}
+                    ></div>
+                </div>
+            </li>
+        ))}
+    </ul>
+</div>
 
             <div id="quizzes" className={`tabcontent ${activeTab === 'quizzes' ? 'active' : ''}`}>
                 <h2>Quizzes</h2>
@@ -104,6 +153,16 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
             <div id="feedback" className={`tabcontent ${activeTab === 'feedback' ? 'active' : ''}`}>
                 <h2>Feedback</h2>
                 <p>Get feedback on your coding progress and performance.</p>
+
+                <h2>Interactive Chat</h2>
+                <p>Ask questions or interact with the chatbot below:</p>
+                <iframe
+                    src="https://www.chatbase.co/chatbot-iframe/9YK6TrigVzwsAN6YqvxZO"
+                    width="100%"
+                    style={{ height: '100%', minHeight: '700px', border: 'none' }}
+                    frameBorder="0"
+                    title="Interactive Chatbot"
+                ></iframe>
                 <button className={`tablink ${activeTab === 'dashboard' ? 'active' : ''}`} onClick={() => openTab('dashboard')}>Return to dashboard</button>
                 {/* Add feedback content here */}
             </div>
@@ -130,6 +189,33 @@ const LandingPage = (props: LandingPageProps): JSX.Element => {
                 <p>Streak: <span className= "streak-number">5</span></p>
                 <p>Longest Streak: <span className= "longest-streak-number">20</span></p>
             </div>
+
+            {/* Course List Section */}
+            <h2>Select a Course</h2>
+            <ul className="course-list">
+                {courses.map((course) => (
+                    <li className="course-item" key={course.id}>
+                        <h3>{course.title}</h3>
+                        <p>{course.description}</p>
+                        {course.id === 1 && (
+                            <button className="course-button" onClick={handleEnrollNowVariables}>Enroll Now</button>
+                        )}
+                        {course.id === 2 && (
+                            <button className="course-button" onClick={handleEnrollNowDataTypes}>Enroll Now</button>
+                        )}
+
+                        {course.id === 3 && (
+                            <button className="course-button" onClick={handleEnrollNowLoops}>Enroll Now</button>
+                        )}
+                    </li>
+                ))}
+                {/* Add Quizzes Section */}
+                <li className="course-item" key="quizzes">
+                    <h3>Quizzes</h3>
+                    <p>Test your knowledge on various programming topics.</p>
+                    <button className="course-button" onClick={handleNavigateToQuizzes}>Explore Quizzes</button>
+                </li>
+            </ul>
         </div>
     );
 }

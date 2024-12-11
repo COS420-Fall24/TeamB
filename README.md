@@ -1,38 +1,44 @@
-# TeamBrilliance
-Team Brilliance Repo for COS 420 of Fall 2024
-## Members:
-Product Manager: Jakob Sholler<br/>
-Dev 1: Dmitrii Tsutskov<br/>
-Dev 2: Sebastian Anghel<br/>
-Dev 3: Boubacar Mankirba<br/>
-Design: Ryan Osullivan<br/>
+# IntuiCode
+Teaching beginner programmers how to code.
+## Installation
 
-### Quick Start
+Step 1: Clone the Project Using
+```
+git clone https://github.com/COS420-Fall24/TeamB.git
+```
+Step 2: Run the following to position yourself in the app folder
+```
+cd TeamB
+cd app
+```
+Step 3: Install packages using 
+```
+npm install
+```
 
-#### Install
-Step 1: Open Terminal \
-Step 2: Run `cd FrontEnd` in terminal to position yourself in the FrontEnd folder \
-Step 3: Run `npm install`
-
-This will install all the packages and their dependencies used by the app. You need to complete this before building, running or testing the app.
+These packages and their dependencies used by the app. You need to complete this before building, running or testing the app.
 
 
-#### Build 
-Step 1: Open Terminal \
-Step 2: Run `cd app` in terminal to position yourself in the app folder \
-Step 3: Run `npm run build` 
+## Build 
+Step 1: Run `cd app` \
+Step 2: Run `npm run build` 
 
-#### Run application
-Step 1: Open Terminal \
-Step 2: Run `cd app` in terminal to position yourself in the app folder \
-Step 3: Run `npm start` or `npm run start` 
+## Run Application
+Step 1: Run `cd app`\
+Step 2: Run `npm start` or `npm run start` 
 
 A browser window should open automatically. If no browser window opens, open one manually and navigate to http://localhost:3000/
 
-#### Run unit tests
-Step 1: Open Terminal \
-Step 2: Run `cd app` in terminal to position yourself in the app folder \
-Step 3: Run `npm run test` 
+## Run Tests
+Step 1: Run `cd app`\
+Step 2: Run `npm run test` 
+
+## Authors:
+Product Manager: <a href="https://github.com/Jakob-Sholler">Jakob Sholler<br/></a>
+Dev 1: <a href="https://github.com/yTKONOSINA">Dmitrii Tsutskov<br/></a>
+Dev 2: <a href="https://github.com/SebAnghel23">Sebastian Anghel<br/></a>
+Dev 3: <a href="https://github.com/Boubacarmank">Boubacar Mankirba<br/></a>
+Design: <a href="https://github.com/acetone01">Ryan O'Sullivan<br/></a>
 
 ## Mission Statement
 Simplify Learning
@@ -51,7 +57,7 @@ University students, particularly those in STEM majors, are feeling overwhelmed,
 With Ever changing and evolving technology students in STEM need to spend extra time learning the new technologies for their majors. New technologies such as Improved or new programs like Constantly Learning new technologies takes extra time out of those students' days leaving little time for other activities. 
 Students in STEM majors are more often than not required to complete large projects along with large exams. Having large outside projects eats into the time STEM majors have dedicated to rest of their life. Any other classwork/Homework, which there is a Good chance that they have another class which Also requires Larger projects as well. Any Work time from jobs, and as stated above, Time to learn the new Technologies in the field. So with all the above the time STEM students have their time cannibalized by school with little to no time for relaxation and enjoyment. A method to help combat this lack of time is time management.How can we help STEM majors manage their Time so that they get the breaks they need?
 
-### 2	 Difficulties Reading Code
+### 2. Difficulties Reading Code
 Many starting programmers have difficulties reading and understanding code. This causes problems with learning and could lead to other issues such as imposter syndrome.Often learning materials focus on higher level Ideas, that causes those missing the foundational ideas to have a disconnect in understanding. How can we simplify code to make it more readable and approachable for beginners?
 
 

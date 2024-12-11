@@ -5,10 +5,14 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-d
 import { onAuthStateChanged, getAuth, User } from 'firebase/auth';
 import AuthPage from './components/AuthPage';
 import LandingPage from './components/LandingPage';
-import Variables from './components/Variables'; // Import your Variables component
-import DataTypes from './components/DataTypes'; // Import the DataTypes component
+import Variables from './components/Variables'; 
+import DataTypes from './components/DataTypes';
 import Loops from './components/Loops';
 import './App.css'; // Import the CSS
+import CoursePage from './components/CoursePage';
+import InteractiveExercises from './components/InteractiveExercises';
+import Quizzes from './components/Quizzes'; // Import the Quizzes component
+
 
 const auth = getAuth();
 
@@ -27,6 +31,26 @@ const App = (): JSX.Element => {
         auth.signOut();
         setUser(null);
     };
+    /**  
+     ** UNUSED VARIABLE 'courseProgress' causing build errror
+     **
+     ** eslint automatically treats unused variables as errors
+     ** remove below comment once 'courseProgress' is used
+    **/
+
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const [courseProgress, setCourseProgress] = useState<Record<number, number>>({});
+
+    const updateCourseProgress = (courseId: number): void => {
+        setCourseProgress((prev) => {
+            const currentProgress = prev[courseId];
+            if (currentProgress < 100) {
+                const newProgress = Math.min(currentProgress + 20, 100);
+                return { ...prev, [courseId]: newProgress };
+            }
+            return prev;
+        });
+    };
 
     return (
         <Router>
@@ -34,10 +58,17 @@ const App = (): JSX.Element => {
                 <Route
                     path="/"
                     element={user ? <LandingPage onLogout={handleLogout} /> : <AuthPage onLogin={handleLogin} />}
+                    
                 />
-                <Route path="/variables" element={<Variables />} /> {/* New route for Variables page */}
-                <Route path="/data-types" element={<DataTypes />} /> {/* New route for DataTypes page */}
-                <Route path="/loops" element={<Loops />} /> {/* New route for DataTypes page */}
+                <Route path="/variables" element={<Variables />} /> 
+                <Route path="/data-types" element={<DataTypes />} /> 
+                <Route path="/loops" element={<Loops />} /> 
+                <Route path="/quizzes" element={<Quizzes />} />
+                <Route path="/interactive-exercises" element={<InteractiveExercises />} />
+                <Route
+                    path="/course/:courseId"
+                    element={<CoursePage updateProgress={updateCourseProgress} />}
+                />
                 <Route path="*" element={<Navigate to="/" />} />
             </Routes>
         </Router>

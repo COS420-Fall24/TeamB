@@ -12,7 +12,8 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "react-jsx"  // Use "react" if using React 16 or earlier
+    "jsx": "react-jsx", // Use "react" if using React 16 or earlier
+    "outDir": "./dist"
   },
   "include": ["src/**/*", "tests/**/*"],  // Include your test files as well
   "exclude": ["node_modules"]
